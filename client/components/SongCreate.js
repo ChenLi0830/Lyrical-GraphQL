@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
-
+import {Link, hashHistory} from 'react-router';
 
 class SongCreate extends Component {
   constructor(props){
@@ -19,11 +19,13 @@ class SongCreate extends Component {
       variables: {
         title: this.state.title,
       }
-    });
+    })
+        .then(() => hashHistory.push("/"))
   }
   
   render(){
     return <div>
+      <Link to="/">Back</Link>
       <h3>Create a new song</h3>
       <form onSubmit={() => this.onSubmit(event)}>
         <label>Song Title:</label>
