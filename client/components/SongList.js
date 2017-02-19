@@ -1,7 +1,7 @@
 import React from 'react';
 import {graphql} from 'react-apollo';
 import {Link} from 'react-router';
-import fetchSongsQuery from '../queries/fetchSongs'
+import fetchSongsQuery from '../queries/fetchSongList'
 import gql from 'graphql-tag';
 
 const SongList = (props) => {

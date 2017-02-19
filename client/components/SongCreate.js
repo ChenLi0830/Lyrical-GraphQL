@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import query from '../queries/fetchSongs';
+import query from '../queries/fetchSongList';
 import {graphql} from 'react-apollo';
 import {Link} from 'react-router';
 import gql from 'graphql-tag';
