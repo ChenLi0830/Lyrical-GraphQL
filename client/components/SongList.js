@@ -1,23 +1,25 @@
 import React from 'react';
 import {graphql} from 'react-apollo';
 import {Link} from 'react-router';
-import fetchSongsQuery from '../queries/fetchSongList'
+import fetchSongsQuery from '../queries/fetchSongList';
 import gql from 'graphql-tag';
 
 const SongList = (props) => {
   const onSongDelete = (id) => {
     props.mutate({
-      variables:{id},
+      variables: {id},
       // refetchQueries: [{query: fetchSongsQuery}],
     })
         .then(() => props.data.refetch());
   };
   
-  console.log("props", props);
+  // console.log("props", props);
   if (props.data.loading) return <div>Loading...</div>;
   const songList = props.data.songs.map(song => (
           <li className="collection-item" key={song.id}>
-            {song.title}
+            <Link to={`songs/${song.id}`}>
+              {song.title}
+            </Link>
             <i className="material-icons" onClick={() => onSongDelete(song.id)}>
               delete
             </i>
